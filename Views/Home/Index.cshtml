@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojodachi</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div id="pagewrap">
+        <div class="topbar">
+            <span id="fullness" class="attribute"><span>Fullness:</span> @ViewBag.fullness</span>
+            <span id="happiness" class="attribute"><span>Happiness:</span> @ViewBag.happiness</span>
+            <span id="meals" class="attribute"><span>Meals:</span> @ViewBag.meals</span>
+            <span id="energy" class="attribute"><span>Energy:</span> @ViewBag.energy</span>
+        </div>
+        <div class="dojodachi">
+            <img src="~/images/ninja.png" />
+            <p class="message">@ViewBag.message</p>
+        </div>
+        <div class="controls">
+            @{
+                if(ViewBag.fullness > 100 && ViewBag.happiness > 100 && ViewBag.energy > 100)
+                {
+                    <a href="/restart" class="button">Restart</a>
+                }
+                else if(ViewBag.fullness > 0 && ViewBag.happiness > 0)
+                {
+                    <a href="/feed" class="button">Feed</a>
+                    <a href="/play" class="button">Play</a>
+                    <a href="/work" class="button">Work</a>
+                    <a href="/sleep" class="button">Sleep</a>
+                }
+                else
+                {
+                    <a href="/restart" class="button">Restart</a>
+                }
+            }
+            
+        </div>
+    </div>
+</body>
+</html>
